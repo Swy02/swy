@@ -7,7 +7,7 @@ class BookInfoAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(BookInfo,)
+admin.site.register(BookInfo,BookInfoAdmin)
 
 
 
