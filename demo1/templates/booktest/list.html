@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>书籍列表</h2>
+    <ul>
+        {% for book in book %}
+        <li> <a href="/booktest/detail/{{book.id}}/"/> {{book.title}}----{{ book.pub_date }}</li>
+
+        {%endfor %}
+
+    </ul>
+
+</body>
+</html>
