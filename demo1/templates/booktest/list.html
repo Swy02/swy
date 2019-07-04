@@ -10,7 +10,7 @@
         {% for book in book %}
         <li> <a href="{% url 'booktest:detail' book.id %}"/> {{book.title}}----{{ book.pub_date }}</li>
 
-        {%endfor %}
+        {% endfor %}
 
     </ul>
 
