@@ -11,14 +11,18 @@
         <h3>用有角色</h3>
         <ul>
             {% for hero in book.heroinfo_set.all %}
-             <li>{{hero.name}}----{{hero.content}}</li>
+             <li>{{hero.name}}----{{hero.content}}----<a href="{%  url 'booktest:deletehero' hero.id %}">删除</a> </li>
             {% endfor %}
         </ul>
     {% else %}
         <h3>没有英雄</h3>
     {% endif %}
 
-    <a href="/booktest/">跳转首页</a>
+    <a href="{% url 'booktest:addhero' book.id %}">添加</a>
+
+    {# <a href="/booktest/">跳转首页</a> #}
+    <a href="{% url 'booktest:index'  %}">跳转首页</a>
+
 
 </body>
 </html>

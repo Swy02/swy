@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render ,reverse ,redirect
+from django.http import HttpResponse,HttpResponseRedirect
 # Create your views here.
 from django.template import loader
 from .models import BookInfo,HeroInfo
@@ -38,3 +38,29 @@ def detail(request,id):
     print(book)
     result=temp3.render({"book":book})
     return HttpResponse(result)
+
+
+def deletehero(request,id):
+    hero=HeroInfo.objects.get(pk=id)
+    bookid=hero.book.id
+    hero.delete()
+    # return HttpResponse('删除成功')
+
+    return redirect(reverse('booktest:detail',args=(bookid,)))
+
+def addhero(request,id):
+    book=BookInfo.objects.get(pk=id)
+    if request.method=="GET":
+    # return HttpResponse('成功')
+        return render(request,"booktest/addhero.html",{'book':book})
+    elif request.method == "POST":
+        name = request.POST.get("username")
+        content = request.POST.get("content")
+        gender=request.POST.get("gender")
+        hero = HeroInfo()
+        hero.name = name
+        hero.gender=gender
+        hero.content = content
+        hero.book = book
+        hero.save()
+        return redirect(reverse("booktest:detail",args=(id,)))
