@@ -20,5 +20,5 @@ from django.conf.urls import url,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('booktest/',include('booktest.urls',namespace='booktest')),
-    # url('vote/',include('vote.urls',namespace='vote'))
+    url('vote0704/',include('vote0704.urls',namespace='vote0704')),
 ]
