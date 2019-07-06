@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>当前书籍为：{{book.title}} </h2>
+    {% if book.heroinfo_set.count %}
+        <ul>
+        <h3>拥有角色为：</h3>
+        {% for hero in book.heroinfo_set.all %}
+            <li>{{ hero.name }}--------{{ hero.content }}<a href="{% url 'book:deletehero' hero.id %}">删除</a> </li>
+        {% endfor %}
+
+    </ul>
+
+    {% else %}
+        <h3>没有角色</h3>
+    {% endif %}
+    <a href="{% url 'book:addhero' book.id %}">添加</a>
+
+
+    <a href="{% url 'book:index' %}">跳转首页</a>
+</body>
+</html>
