@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 class BookInfo(models.Model):
@@ -16,6 +15,7 @@ class HeroInfo(models.Model):
 
     def __str__(self):
         return self.name
+
 
 
 

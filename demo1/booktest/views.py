@@ -64,3 +64,4 @@ def addhero(request,id):
         hero.book = book
         hero.save()
         return redirect(reverse("booktest:detail",args=(id,)))
+
