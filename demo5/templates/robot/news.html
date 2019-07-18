@@ -1,0 +1,160 @@
+{% extends 'robot/base.html' %}
+{% block title %}
+    <title>行业资讯</title>
+{% endblock %}
+
+    {% block img %}
+	<img src="/static/images/news_ban.jpg" width="1920" height="420" alt=""/>
+
+    {% endblock %}
+
+    {% block left %}
+    <div class="abbg_t">
+                <h5>行业资讯</h5>
+                <p>NEWS</p>
+            </div>
+    <ul class="about_tabl">
+                <li class="abspe">
+                    <p>行业新闻</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+                <li>
+                    <p>学校动态</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+
+            </ul>
+
+    {% endblock %}
+
+    {% block right %}
+        <div class="hynewsy fr show">
+            <div class="crumb_bre clearfix">
+                <p>><a class="shouye" href="index.html">首页</a>><a href="news.html">行业资讯</a></p>
+            </div>
+            <h3 class="abt_rtit">行业新闻  / NEWS</h3>
+            <ul class="hynlist">
+                {% for i in page.object_list %}
+                    <li>
+                    <a class="nw_tit" href="{% url 'robot:detail' i.id %}">{{i.title}}</a>
+                    <span>{{i.create_time}}</span>
+                    <p>{{i.body|safe}}</p>
+                    <a class="chakan" href="{% url 'robot:detail' i.id %}">查看详情</a>
+                </li>
+                {% endfor %}
+            </ul>
+             <!--分页-->
+            <ul class="pagination">
+    	<li class="pganff"><span>共<strong>{{news.count}}</strong>条数据</span></li>
+        {% if page.has_previous %}
+            <li class="pganf">
+                <a href="?page={{page.previous_page_number}}">上一页</a>
+            </li>
+            {% endif %}
+
+            {% for i in page.paginator.page_range %}
+            {% if i == page.number %}
+            <li class="paging">
+                <a href="?page={{i}}">{{i}}</a>
+            </li>
+
+            {% else %}
+            <li>
+                <a href="?page={{i}}">{{i}}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% if page.has_next %}
+            <li class="pganf">
+                <a href="?page={{page.next_page_number}}">下一页</a>
+            </li>
+            {% endif %}
+
+    </ul>
+        </div>
+        <div class="hynewsy fr ">
+            <div class="crumb_bre clearfix">
+                <p>> <a href="index.html">首页</a> > <a href="news.html">行业资讯</a></p>
+            </div>
+            <h3 class="abt_rtit">学校动态  / NEWS</h3>
+            <ul class="hynlist">
+                {% for z in schoolnews %}
+                <li>
+                    <a class="nw_tit" href="{% url 'robot:detail1' z.id %}">{{z.title}}</a>
+                    <span>{{z.create_time}}</span>
+                    <p>{{z.body|safe}}</p>
+                    <a class="chakan" href="{% url 'robot:detail1' z.id %}">查看详情</a>
+                </li>
+                {% endfor %}
+            </ul>
+     <!--分页-->
+
+
+        </div>
+
+
+    <script>
+
+/*tab切换*/
+$(function(){
+	$('.about_tabl li').click(function(){
+		var num=$(this).index();
+		$(this).addClass('abspe').siblings('li').removeClass('abspe');
+		$('.hynewsy').eq(num).addClass('show').siblings('.hynewsy').removeClass('show');
+	});
+});
+
+/*分页*/
+$(function(){
+	$('.pagination li').click(function(){
+		$(this).addClass('paging').siblings('li').removeClass('paging');
+
+	});
+});
+</script>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

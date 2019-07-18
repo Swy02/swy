@@ -1,0 +1,227 @@
+{% extends 'robot/base.html' %}
+{% block title %}
+    <title>关于我们</title>
+{% endblock %}
+
+
+
+{% block img %}
+	<img src="/static/images/about_int_01.jpg" width="1920" height="420" alt=""/>
+{% endblock %}
+
+<!--学校介绍-->
+
+
+        {% block left %}
+        	<div class="abbg_t">
+            	<h5>关于我们</h5>
+                <p>ABOUT US</p>
+            </div>
+            <ul class="about_tabl">
+            	<li class="abspe">
+                	<p>学校介绍</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+                <li>
+                	<p>荣誉资质</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+                <li>
+                	<p>合作院校</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+            </ul>
+
+        {% endblock %}
+
+    {% block right %}
+        <div class="sintro_you fr show">
+            <div class="crumb_bre clearfix">
+                <p>><a class="shouye" href="index.html">首页</a>><a href="about_us.html">关于我们</a></p>
+            </div>
+            <h3 class="abt_rtit">学校介绍 /  INTRODUCE</h3>
+            <div class="abright_1">
+                <p>学校简介</p>
+            </div>
+            <div class="about_ts">
+                <img src="/static/images/about1_03.jpg" width="820" height="350" alt=""/>
+            </div>
+            <p class="sbot_jie">罗萨姆机器人探索中心，总部位于青岛，2010年开始从事机器人教育，先后被相关单位认定为：山东建筑大学智能与机器人研究实习基地、APRC国际机器人大赛理事单位、中国机器人教育联盟会员单位、山东省青少年创客教育实践基地理事单位、清华大学少年科学素养教材实践基地、临沂市青少年机器人协会理事长单位、沂蒙晚报、鲁南商报小记者站、思维导图、创新与发明专利教育基地，先后与青岛市第一实验小学、第三实验小学、红旗小学、第七中学、临沂市第九中学、胜利小学、经开区第一实验小学、河东益民小学、益民中学以及临沂市新华、童星。金宝贝、福娃贝贝、朝阳等50多家中小学及幼儿园合作开课，授课学生超过万人，所授课学校多次受到青岛市教育局、临沂市教育局、河东教育局及经开区教育局、市团委、妇联领导的鼓励与表扬。</p>
+           <div class="abright_1">
+                <p>教育使命</p>
+            </div>
+            <p>我们专注于为4-16岁幼儿和中小学生提供一个集科学发现、科学探索、互动体验、机器人竞赛为一体的体感平台；</p>
+            <p>我们终于机器人教育事业；</p>
+            <p>致力于给孩子最好的教育；</p>
+            <p>我们能全面提高孩子的专注度、独立思考力，改掉孩子身上的一些坏习惯，也能把孩子培养成中国甚至世界科技大赛冠军！</p>
+            <div class="abright_1">
+                <p>我们的理念</p>
+            </div>
+            <p>做一份影响中国未来的青少年科技教育事业。</p>
+
+            <div class="abright_1">
+                <p>我们的特色</p>
+            </div>
+            <p>与世界先进科技同步；</p>
+            <p>分龄、小班教育；</p>
+            <p>老师全程鼓励式教学；</p>
+            <p>注重孩子的体感（孩子自身动手能力的培养）。</p>
+            <div class="abright_1">
+                <p>我们的优势</p>
+            </div>
+            <p>核心教师由从事该项教育7年之久，拥有丰富教学经验、曾培训出世界大赛冠亚军选手3名的资深教师和参加过20014中国机器人大赛并击败北航、北大参赛团队获得冠军的团队成员，以及留学归来技术实力雄厚的大学老师组成。
+    我们有能力也有信心把罗萨姆机器人学校打造成山东地区高品质、高质量的教育品牌。</p>
+
+            <div class="abright_1">
+                <p>我们的承诺</p>
+            </div>
+            <p>我们可能无法保证每个孩子都能成为竞技场的冠军，但是我们会尽最大努力让孩子在这里健康快乐的成长，给孩子世界上最好的教育！</p>
+        </div>
+
+        <div class="sintro_you fr ">
+            <div class="crumb_bre clearfix">
+                <p>>首页><span>关于我们</span></p>
+            </div>
+            <h3 class="abt_rtit">荣誉资质 /   HONORS</h3>
+            <div class="abright_1">
+                <p>荣誉墙</p>
+            </div>
+                <ul class="abt_honor clearfix">
+                {% for i in page.object_list %}
+                <li>
+                    <img src="/media/{{i.img}}" width="258" height="318" alt=""/>
+                </li>
+                {% endfor %}
+                </ul>
+                <!--分页-->
+                <ul class="pagination">
+    	<li><span>共6条数据</span></li>
+                {% if page.has_previous %}
+        <li class="pganf">
+            <a href="?page={{page.previous_page_number}}">上一页</a>
+        </li>
+        {% endif %}
+
+            {% for i in page.paginator.page_range %}
+                {% if i == page.number %}
+                <li class="paging">
+                    <a href="?page={{i}}">{{i}}</a>
+                </li>
+
+                {% else %}
+                <li>
+                    <a href="?page={{i}}">{{i}}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+
+        {% if page.has_next  %}
+        <li class="pganf">
+            <a href="?page={{page.next_page_number}}">下一页</a>
+        </li>
+        {% endif %}
+
+
+    </ul>
+           	<!--<iframe class="honor_iframe" src="honor_wall.html" width="820" height="1300"></iframe>-->
+        </div>
+
+        <div class="sintro_you fr">
+            <div class="crumb_bre clearfix">
+                <p>> <a href="index.html">首页</a> > <a href="about_us.html">关于我们</a></p>
+            </div>
+            <h3 class="abt_rtit">合作院校 /   COOPERATION</h3>
+            <div class="abright_1">
+                <p>合作院校</p>
+            </div>
+            <ul class="abt_honor1 clearfix">
+                {% for i in school %}
+                <dl>
+                    <dt>
+                        <img src="/media/{{i.img}}" width="230" height="290" alt=""/>
+                    </dt>
+                    <dd>
+                    	{{i.name}}
+                    </dd>
+                </dl>
+                {% endfor %}
+
+            </ul>
+           <p>自2010年进入临沂市以来，先后与临沂市九中、胜利小学、经济区第一实验小学、河东益民小学、益民中学、朴园小学、临沂三小等中小学及临沂市新华、童星、金宝贝、福娃贝贝、朝阳等30多家幼儿园合作开课，授课学生超过万人，所授课学校多次受到临沂市教育局，河东教育局及经济开发区教育局，市团委，妇联领导的鼓励与表扬。</p>
+        </div>
+
+<script>
+
+/*tab切换*/
+$(function(){
+	$('.about_tabl li').click(function(){
+		var num=$(this).index();
+		$(this).addClass('abspe').siblings('li').removeClass('abspe');
+		$('.sintro_you').eq(num).addClass('show').siblings('.sintro_you').removeClass('show');
+	});
+});
+
+/*分页*/
+$(function(){
+	$('.pagination li').click(function(){
+		$(this).addClass('paging').siblings('li').removeClass('paging');
+
+	});
+});
+
+
+$('.abt_honor li').on('click',function(){
+
+	layer.open({
+	  type: 1,
+	  title: false,
+	  closeBtn: 1,
+	  area: 'auto',
+	  shade: 0.8,
+	  skin: 'layui-layer-nobg', //没有背景色
+	  shadeClose: true,
+	  content: $(this).html()
+	});
+	//alert(num);
+
+})
+</script>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

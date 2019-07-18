@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Title</title>
+    {% endblock %}
+    <link type="text/css" rel="stylesheet" href="/static/css/public.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/layui.css"/>
+    <script src="/static/js/jquery-3.0.0.min.js"></script>
+    <script src="/static/js/public.js"></script>
+    <script src="/static/layer/layer.js"></script>
+
+</head>
+<body>
+<!--导航栏-->
+<div class="nav_box">
+	<div class="nav clearfix">
+    	<a class="logo fl" href="{% url 'robot:index' %}">
+        	<img src="/static/images/logo_02.jpg" width="198" height="100" alt="logo"/>
+        </a>
+        <ul class="nav_list fl">
+        	<li >
+            	<a href="{% url 'robot:competition' %}">
+                    <img src="/static/images/saishi_03.png" width="37" height="33" alt=""/>
+                    赛事活动
+                </a>
+            </li>
+            <li class="te">
+            	<a href=" {% url 'robot:about_us' %}">
+                    <img src="/static/images/guanyu.png" width="37" height="33" alt=""/>
+                    关于我们
+                </a>
+            </li>
+            <li>
+            	<a href=" {% url 'robot:teachers_team' %}">
+                    <img src="/static/images/tuandui_03.png" width="37" height="33" alt=""/>
+                    师资团队
+                </a>
+            </li>
+            <li>
+            	<a href=" {% url 'robot:class_sys' %}">
+                    <img src="/static/images/kecheng.png" width="37" height="33" alt=""/>
+                    课程体系
+                </a>
+            </li>
+            <li>
+            	<a href=" {% url 'robot:classroom_show' %}">
+                    <img src="/static/images/zhanshi.png" width="37" height="33" alt=""/>
+                    课堂展示
+                </a>
+            </li>
+            <li>
+            	<a href=" {% url 'robot:news' %}">
+                    <img src="/static/images/zixun.png" width="37" height="34" alt=""/>
+                    行业资讯
+                </a>
+            </li>
+            <li >
+            	<a href=" {% url 'robot:baoming' %}">
+                    <img  src="/static/images/baomign_03.png" width="36" height="35" alt=""/>
+                    线上报名
+                </a>
+            </li>
+            <li>
+            	<a href=" {% url 'robot:contact_us' %}">
+                    <img src="/static/images/lianxi_03.png" width="36" height="35"alt=""/>
+                    联系我们
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="about_ban">
+    {% block img %}
+
+    {% endblock %}
+</div>
+
+<!--学校介绍-->
+<div class="school_intro1 clearfix">
+	<div class="sintro_zuo fl">
+    	<div class="guanyu">
+        	{% block left %}
+            {% endblock %}
+            <div class="abbg_b">
+                <img src="/static/images/about_di_07.png" width="240" height="17" alt=""/>
+            </div>
+        </div>
+
+        <div class="abot_lianxi">
+        	<div class="abotlx_t">
+            	<img src="/static/images/about_lx_07.png" width="240" height="60" alt=""/>
+            </div>
+            <div class="abotlx_m">
+            	<h6>蓝湾校区</h6>
+                <p>地址：兰山区涑河北街与桃园路交汇
+蓝湾国际北门</p>
+                <p>电话：0539-7011170</p>
+
+                <h6>开发区实验一小校区</h6>
+                <p>地址：开发区沈阳路和香港路交汇
+第一实验小学北门西邻 </p>
+                <p>电话：13869929703</p>
+
+                <h6>罗庄新华校区</h6>
+                <p>地址：迎宾大道与罗六路交汇南路东
+新华谷瑞对过</p>
+                <p>电话：18266705555</p>
+
+                <h6>南坊沂龙湾校区</h6>
+                <p>地址：北京路与马陵山路交汇第二
+实验小学南门西邻</p>
+                <p>电话：0539-7017776  13869929703</p>
+
+                <div class="abot_qrbox clearfix">
+                    <dl class="fl">
+                        <dt>
+                        	<img src="/static/images/qr_03.jpg" width="79" height="79" alt=""/>
+                        </dt>
+                        <dd>公众号</dd>
+                    </dl>
+                    <dl class="fr">
+                        <dt>
+                        	<img src="/static/images/qr_03.jpg" width="79" height="79" alt=""/>
+                        </dt>
+                        <dd>微信号</dd>
+                    </dl>
+                </div>
+                <div class="abot_sao">
+                	<img src="/static/images/about_qr_07.png" width="222" height="99" alt=""/>
+                </div>
+            </div>
+            <div class="abbg_b">
+            	<img src="/static/images/about_di_07.png" width="240" height="17" alt=""/>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        {% block right %}
+        {% endblock %}
+
+    </div>
+</div>
+
+
+<!--footer-->
+<div class="footer">
+	<div class="footer_box ">
+        <h2>机器人时代已经来临！您当然不能缺席！</h2>
+        <p>李克强总理提出了全民创新的理念，而机器人教育正是培养创新能力最好的载体，它不仅融合了机械、电子、传感器、计算机、人工智能、光学、力学、电磁学等众多的学科，更在学习的过程中，对创新的思考和动手的能力有着极大的培养，正如乔布斯所言：这个国家的每一个人都应该学习如何编程，因为它教你如何思考，而机器人教育正是学习编程最好的载体。
+    未来的世界是机器人的时代，机器人会作为普通的一员走进我们的生活。
+    </p>
+    <div class="ftt_b">
+        <div class="ft_phone fl">
+            <img src="/static/images/ft_phone_03.png" width="101" height="100" alt=""/>
+        </div>
+        <ul class="ft_add clearfix">
+            <li>
+                <p>校区：蓝湾校区</p>
+                <p>地址：兰山区涑河北街与桃园路交汇蓝湾国际北门</p>
+                <p>电话：0539-7011170</p>
+            </li>
+            <li>
+                <p>校区：南坊沂龙湾校区</p>
+                <p>地址：北京路与马陵山路交汇第二实验小学南门西邻</p>
+                <p>电话：0539-7017776<br/>&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp; 13869929703</p>
+            </li>
+             <li>
+                <p>校区：开发区实验一小校区</p>
+                <p>地址：开发区沈阳路和香港路交汇第一实验小学北门西邻</p>
+                <p>电话：13869929703</p>
+            </li>
+            <li class="ftte">
+                <p>校区：罗庄新华校区</p>
+                <p>地址：迎宾大道与罗六路交汇南路东新华谷瑞对过</p>
+                <p>电话：18266705555</p>
+            </li>
+        </ul>
+    </div>
+    <div class="cpr_box">
+        <p class="fot_map"><a href="#">机器人培训</a> <a href="#">校区分布</a> <a href="#">师资保障</a> <a href="#">联系我们</a> <a href="#">网站地图</a></p>
+        <p class="fot_cpright">罗萨姆机器人教育科技有限公司 京ICP备15015223号</p>
+    </div>
+
+    <div class="qr_code1 clearfix">
+    	<img src="/static/images/qr_code_03.jpg" width="73" height="73" alt=""/>
+        <div class="qr_txt">
+        	<p>公众号</p>
+        </div>
+    </div>
+    <div class="qr_code2 clearfix">
+    	<img src="/static/images/qr_04_03.jpg" width="73" height="73" alt=""/>
+        <div class="qr_txt">
+        	<p>微信号</p>
+        </div>
+    </div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{% extends 'robot/base.html' %}
+{% block title %}
+    <title>线上报名</title>
+{% endblock %}
+
+    {% block img %}
+	<img src="/static/images/about_int_01.jpg" width="1920" height="420" alt=""/>
+    {% endblock %}
+
+
+<!--学校介绍-->
+    {% block left %}
+
+        	<div class="abbg_t">
+            	<h5>线上报名</h5>
+                <p>REGISTRATION</p>
+            </div>
+            <ul class="about_tabl">
+            	<li class="abspe">
+                	<p>线上报名</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+
+            </ul>
+
+
+    {% endblock %}
+
+
+    {% block right %}
+        <div class="sintro_you fr show">
+            <div class="crumb_bre clearfix">
+                <p>> <a class="shouye" href="index.html">首页</a> > <a href="baoming.html">线上报名</a></p>
+            </div>
+            <h3 class="abt_rtit">线上报名 /   REGISTRATION</h3>
+            <div class="abright_1">
+                <p>报名表</p>
+            </div>
+            <div class="bm_sbg">
+            	<img src="/static/images/bms_bg_03.jpg" width="820" height="170" alt=""/>
+            </div>
+            <form id="baoming" class="chart_list" method="post">
+                {% csrf_token %}
+            	<label class="lb1">姓名：<input type="text" name="name"/></label>
+                <label class="lb2">性别：&nbsp;&nbsp;&nbsp;&nbsp;<input class="xingbie" value="man"   type="radio" name="sex"/> &nbsp; 男</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="lb2"><input class="xingbie" value="woman"  type="radio" name="sex"/> &nbsp; 女</label>
+                <label class="lb1">年龄：<input type="text"  name="age" maxlength="2" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/></label>
+                <label class="lb1">电话：<input type="text" id="number" name="number" maxlength="11"  /></label>
+            </form>
+            <div class="bn_btns clearfix">
+                <input class="regist fl" type="submit" value="报名" form="baoming"/>
+                <input class="chongzhi fr" type="reset" value="重置" form="baoming"/>
+            </div>
+        </div>
+        <script>
+
+/*tab切换*/
+$(function(){
+	$('.about_tabl li').click(function(){
+		var num=$(this).index();
+		$(this).addClass('abspe').siblings('li').removeClass('abspe');
+		$('.sintro_you').eq(num).addClass('show').siblings('.sintro_you').removeClass('show');
+	});
+});
+
+/*分页*/
+
+$(function(){
+	$('.pagination li').click(function(){
+		$(this).addClass('paging').siblings('li').removeClass('paging');
+
+	});
+});
+
+
+$('.regist').click(function(){
+
+
+	if($("#number").val() == "")
+	{alert('输入的号码有误')}else{alert('报名成功');}
+});
+
+
+</script>
+
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

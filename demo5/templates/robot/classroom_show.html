@@ -1,0 +1,159 @@
+{% extends 'robot/base.html' %}
+{% block title %}
+    <title>课堂展示</title>
+{% endblock %}
+
+    {% block img %}
+	<img src="/static/images/about_int_01.jpg" width="1920" height="420" alt=""/>
+    {% endblock %}
+
+
+<!--学校介绍-->
+    {% block left %}
+        	<div class="abbg_t">
+            	<h5>课堂展示</h5>
+                <p>CLASSES</p>
+            </div>
+            <ul class="about_tabl">
+            	<li class="abspe">
+                	<p>课堂展示</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+
+            </ul>
+
+    {% endblock %}
+
+
+    {% block right %}
+
+    <div class="sintro_you fr show">
+                <div class="crumb_bre clearfix">
+                    <p>> <a class="shouye" href="index.html">首页</a> > <a href="classroom_show.html">课堂展示</a></p>
+                </div>
+                <h3 class="abt_rtit">课堂展示 /   CLASSES</h3>
+                <div class="abright_1">
+                    <p>展示墙</p>
+                </div>
+                <ul class="abt_honor clearfix">
+                    {% for i in page.object_list%}
+                    <li>
+                        <img src="/media/{{i.img}}" width="258" height="318" alt=""/>
+                    </li>
+                    {% endfor %}
+
+
+                </ul>
+                <!--分页-->
+        <ul class="pagination">
+            <li class="pganff"><span>共<strong>{{classroom.count}}</strong>条数据</span></li>
+            {% if page.has_previous %}
+            <li class="pganf">
+                <a href="?page={{page.previous_page_number}}">上一页</a>
+            </li>
+            {% endif %}
+
+            {% for i in page.paginator.page_range %}
+            {% if i == page.number %}
+            <li class="paging">
+                <a href="?page={{i}}">{{i}}</a>
+            </li>
+
+            {% else %}
+            <li>
+                <a href="?page={{i}}">{{i}}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% if page.has_next %}
+            <li class="pganf">
+                <a href="?page={{page.next_page_number}}">下一页</a>
+            </li>
+            {% endif %}
+            {% if page.has_tail %}
+            <li class="pganl">
+                <a href="?page={{page.tail_page_number}}">尾页</a>
+            </li>
+            {% endif %}
+
+
+        </ul>
+    </div>
+
+
+    <script>
+
+    /*tab切换*/
+    $(function(){
+        $('.about_tabl li').click(function(){
+            var num=$(this).index();
+            $(this).addClass('abspe').siblings('li').removeClass('abspe');
+            $('.sintro_you').eq(num).addClass('show').siblings('.sintro_you').removeClass('show');
+        });
+    });
+
+    /*分页*/
+    $(function(){
+        $('.pagination li').click(function(){
+            $(this).addClass('paging').siblings('li').removeClass('paging');
+
+        });
+    });
+
+    $('.abt_honor li').on('click',function(){
+
+        layer.open({
+          type: 1,
+          title: false,
+          closeBtn: 1,
+          area: 'auto',
+          shade: 0.8,
+          skin: 'layui-layer-nobg', //没有背景色
+          shadeClose: true,
+          content: $(this).html()
+        });
+        //alert(num);
+
+    })
+    </script>
+    {% endblock %}
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

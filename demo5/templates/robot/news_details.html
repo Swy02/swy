@@ -1,0 +1,112 @@
+{% extends 'robot/base.html' %}
+{% block title %}
+    <title>详细</title>
+{% endblock %}
+
+    {% block img %}
+	<img src="/static/images/news_ban.jpg" width="1920" height="420" alt=""/>
+
+    {% endblock %}
+
+{% block left %}
+<div class="abbg_t">
+                <h5>行业资讯</h5>
+                <p>NEWS</p>
+            </div>
+<ul class="about_tabl">
+                <li>
+                	<a href="{% url 'robot:news' %}">
+                        <p>行业新闻</p>
+                        <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                    </a>
+                </li>
+                <li>
+                	<a href="{% url 'robot:news' %}">
+                        <p>学校动态</p>
+                        <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                    </a>
+                </li>
+
+            </ul>
+{% endblock %}
+
+
+   {% block right %}
+    <div class="hynewsy fr show">
+        <div class="crumb_bre clearfix">
+            <p>> <a class="shouye" href="index.html">首页</a> > <a href="news.html">行业资讯</a></p>
+        </div>
+        <h2>{{news.title}}</h2>
+        <div class="news_tips clearfix">
+        	<span class="nw_date fl">{{news.create_time}}</span>
+            <span class="nw_view fl">{{news.views}}</span>
+        </div>
+        <p>{{news.body|safe}}</p>
+    </div>
+
+
+
+{% endblock %}
+
+<script>
+
+/*tab切换*/
+$(function(){
+	$('.about_tabl li').click(function(){
+		var num=$(this).index();
+		$(this).addClass('abspe').siblings('li').removeClass('abspe');
+		$('.hynewsy').eq(num).addClass('show').siblings('.hynewsy').removeClass('show');
+	});
+});
+
+
+/*分页*/
+$(function(){
+	$('.pagination li').click(function(){
+		$(this).addClass('paging').siblings('li').removeClass('paging');
+		
+	});
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

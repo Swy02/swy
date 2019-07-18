@@ -1,0 +1,119 @@
+{% extends 'robot/base.html' %}
+{% block title %}
+    <title>联系我们</title>
+{% endblock %}
+
+    {% block img %}
+	<img src="/static/images/about_int_01.jpg" width="1920" height="420" alt=""/>
+    {% endblock %}
+
+
+<!--学校介绍-->
+    {% block left %}
+        <div class="abbg_t">
+            <h5>联系我们</h5>
+            <p>CONTACT US</p>
+        </div>
+        <ul class="about_tabl">
+            <li class="abspe">
+                <p>联系我们</p>
+                <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+            </li>
+
+        </ul>
+    {% endblock %}
+
+
+    {% block right %}
+        <div class="sintro_you fr show">
+            <div class="crumb_bre clearfix">
+                <p>> <a class="shouye" href="index.html">首页</a> > <a href="contact_us.html">联系我们</a></p>
+            </div>
+            <h3 class="abt_rtit">联系我们 /   CONTACT US</h3>
+            <div class="abright_1">
+                <p>联系方式</p>
+            </div>
+
+           <ul class="contact_add clearfix">
+           	   <li class="dizhi">
+               		<img src="images/add_icon_03.png" width="46" height="59" alt=""/>
+                    <h3>公司地址</h3>
+                    <p>兰山区涑河北街与桃园路交汇蓝湾国际北门</p>
+               </li>
+               <li class="qiuqiu">
+               		<img src="images/qq_03.png" width="55" height="62" alt=""/>
+                    <h3>联系QQ</h3>
+                    <p>客服1：563786639</p>
+                    <p>客服2：312648475</p>
+               </li>
+               <li class="youxiang">
+               		<img src="images/email_03.png" width="60" height="49" alt=""/>
+                    <h3>公司邮箱</h3>
+                    <p>fhiaeh13868t@qq.com</p>
+               </li>
+               <li class="dianhua">
+               		<img src="images/phone_03.png" width="60" height="60" alt=""/>
+                    <h3>公司电话</h3>
+                    <p>0539-7011170</p>
+               </li>
+           </ul>
+        </div>
+
+        <script>
+
+/*tab切换*/
+$(function(){
+	$('.about_tabl li').click(function(){
+		var num=$(this).index();
+		$(this).addClass('abspe').siblings('li').removeClass('abspe');
+		$('.sintro_you').eq(num).addClass('show').siblings('.sintro_you').removeClass('show');
+	});
+});
+
+/*分页*/
+
+$(function(){
+	$('.pagination li').click(function(){
+		$(this).addClass('paging').siblings('li').removeClass('paging');
+
+	});
+});
+</script>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

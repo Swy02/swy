@@ -1,0 +1,170 @@
+{% extends 'robot/base.html' %}
+{% block title %}
+    <title>师资团队</title>
+{% endblock %}
+
+    {% block img %}
+	<img src="/static/images/tteam_01.jpg" width="1920" height="420" alt=""/>
+    {% endblock %}
+
+
+    {% block left %}
+            <div class="abbg_t">
+                <h5>师资团队</h5>
+                <p>TEAM</p>
+            </div>
+            <ul class="about_tabl">
+                <li class="abspe">
+                    <p>师资团队</p>
+                    <img src="/static/images/arrow_r_03.png" width="20" height="20" alt=""/>
+                </li>
+
+            </ul>
+    {% endblock %}
+
+<!--师资团队-->
+
+    {% block right %}
+    <div class="teacher_r fr ">
+        <div class="crumb_bre clearfix">
+            <p>> <a class="shouye" href="index.html">首页</a> > <a href="teachers_team.html">师资团队</a></p>
+        </div>
+        <h3 class="abt_rtit">师资团队 /TEACHERS TEAM</h3>
+        <div class="abright_1">
+            <p>师资力量</p>
+        </div>
+        <p class="sbot_jie">核心教师由从事该项教育7年之久，拥有丰富经验、培训出世界大赛冠亚军选手3名的资深教师和参加过2014中国机器人大赛并击败北航、北大参赛团队获得冠军的团队成员，以及留学归来技术实力雄厚的大学老师组成。
+我们有能力也有信心把罗萨姆机器人学校打造成山东地区高品质、高质量的教育品牌。
+罗萨姆的每一位老师都毕业于正规大学计算机及相关专业，本科及以上学历占90%以上，有着丰富的机器人教育经历和经验，为孩子科学攀登之路披荆斩棘，指明方向。</p>
+       <div class="abright_1">
+            <p>名师履历</p>
+        </div>
+
+        <ul class="teacher_intro">
+            {% for i in page.object_list %}
+            <li>
+                <dl class="tt_pic fl">
+                    <dt>
+                        <img src="/media/{{i.photos}}" width="260" height="266" alt=""/>
+                    </dt>
+                    <dd>{{i.name}}</dd>
+                </dl>
+                <div class="tt_detail fl">
+                    <h4>{{i.name}}</h4>
+                    <p>籍贯：{{i.native}} </p>
+                    <p>职称：<br/>
+                        {% for z in i.titles_set.all  %}
+                        {{z.title}}<br/>
+                        {% endfor %}
+
+                    </p>
+                </div>
+            </li>
+            {% endfor %}
+
+
+        </ul>
+         <!--分页-->
+        <ul class="pagination">
+    <li class="pganff"><span>共<strong>{{teacher.count}}</strong>条数据</span></li>
+                    {% if page.has_previous %}
+        <li class="pganf">
+            <a href="?page={{page.previous_page_number}}">上一页</a>
+        </li>
+        {% endif %}
+
+            {% for i in page.paginator.page_range %}
+                {% if i == page.number %}
+                <li class="paging">
+                    <a href="?page={{i}}">{{i}}</a>
+                </li>
+
+                {% else %}
+                <li>
+                    <a href="?page={{i}}">{{i}}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+
+        {% if page.has_next  %}
+        <li class="pganf">
+            <a href="?page={{page.next_page_number}}">下一页</a>
+        </li>
+        {% endif %}
+{% if page.has_tail  %}
+    <li  class="pganl">
+        <a href="?page={{page.tail_page_number}}">尾页</a>
+    </li>
+{% endif %}
+</ul>
+    </div>
+
+    <script>
+
+
+/*分页*/
+$(function(){
+$('.pagination li').click(function(){
+    $(this).addClass('paging').siblings('li').removeClass('paging');
+
+});
+});
+</script>
+    {% endblock %}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
